@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: var(--font-lato), system-ui, sans-serif;
+}
+
+::selection {
+  background-color: #fec802;
+  color: #000000;
+}
+
+/* Brand-colored focus ring, everywhere */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #dd161c;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.container-xl {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container-xl {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.arc-red-square {
+  width: 8px;
+  height: 8px;
+  background-color: #dd161c;
+  display: inline-block;
+}
