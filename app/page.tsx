@@ -9,6 +9,7 @@ import { ExpertiseCard, ServiceCard, IndustryCard, InsightCard, CaseStudyCard } 
 import Timeline from "@/components/Timeline";
 import FAQAccordion from "@/components/FAQAccordion";
 import FinanceEcosystem from "@/components/home/FinanceEcosystem";
+import Marquee from "@/components/home/Marquee";
 import BeliefReveal from "@/components/home/BeliefReveal";
 import TransformationStory from "@/components/home/TransformationStory";
 import EccS4Toggle from "@/components/home/EccS4Toggle";
@@ -136,45 +137,29 @@ export default function HomePage() {
           <span className="h-[2px] w-8 bg-belmav-gold" aria-hidden="true" />
           SAP Finance Transformation, Built Around Business Value
         </div>
-        <div className="group relative flex overflow-hidden">
-          {/* Edge fade overlays — sit above the track so tags dissolve into the
-              section background instead of being hard-cropped mid-tag. */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-belmav-black to-transparent sm:w-28" aria-hidden="true" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-belmav-black to-transparent sm:w-28" aria-hidden="true" />
-          <div className="flex w-max shrink-0 animate-marquee group-hover:[animation-play-state:paused]">
-            {[0, 1].map((dup) => (
-              <div key={dup} className="flex shrink-0 items-center" aria-hidden={dup === 1}>
-                {["SAP Finance", "Controlling", "RAR", "BRIM", "S/4HANA"].map((t) => (
-                  <span
-                    key={t}
-                    className="mr-4 shrink-0 border border-belmav-white/20 px-5 py-2 text-sm font-bold uppercase tracking-wide text-belmav-white"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
+        <Marquee pxPerSecond={40}>
+          {["SAP Finance", "Controlling", "RAR", "BRIM", "S/4HANA"].map((t) => (
+            <span
+              key={t}
+              className="mr-4 shrink-0 border border-belmav-white/20 px-5 py-2 text-sm font-bold uppercase tracking-wide text-belmav-white"
+            >
+              {t}
+            </span>
+          ))}
+        </Marquee>
+        <div className="mt-3">
+          <Marquee pxPerSecond={40} reverse>
+            {["SIMPLER", "SMARTER", "MORE PREDICTABLE"].map((t, i) => (
+              <span
+                key={t}
+                className={`mr-4 shrink-0 px-5 py-2 text-sm font-extrabold uppercase tracking-wide ${
+                  i === 0 ? "bg-belmav-gold text-belmav-black" : i === 1 ? "bg-belmav-white text-belmav-black" : "bg-belmav-red text-belmav-white"
+                }`}
+              >
+                {t}
+              </span>
             ))}
-          </div>
-        </div>
-        <div className="group relative mt-3 flex overflow-hidden">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-belmav-black to-transparent sm:w-28" aria-hidden="true" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-belmav-black to-transparent sm:w-28" aria-hidden="true" />
-          <div className="flex w-max shrink-0 animate-marquee group-hover:[animation-play-state:paused]">
-            {[0, 1].map((dup) => (
-              <div key={dup} className="flex shrink-0 items-center" aria-hidden={dup === 1}>
-                {["SIMPLER", "SMARTER", "MORE PREDICTABLE"].map((t, i) => (
-                  <span
-                    key={t}
-                    className={`mr-4 shrink-0 px-5 py-2 text-sm font-extrabold uppercase tracking-wide ${
-                      i === 0 ? "bg-belmav-gold text-belmav-black" : i === 1 ? "bg-belmav-white text-belmav-black" : "bg-belmav-red text-belmav-white"
-                    }`}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            ))}
-          </div>
+          </Marquee>
         </div>
       </section>
 
